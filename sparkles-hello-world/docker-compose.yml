@@ -1,4 +1,4 @@
-version: "1.8.6"
+version: "3.5"
 
 services:
 
@@ -6,9 +6,10 @@ services:
     environment:
       # The format here is: <app-id>_<docker-service-name>_1
       APP_HOST: zerotier_1
-      APP_PORT: 3000
+      APP_PORT: 3001
     
   server:
     image: zerotier/zerotier:latest
     user: "1000:1000"
     init: true
+  restart: unless-stoped
