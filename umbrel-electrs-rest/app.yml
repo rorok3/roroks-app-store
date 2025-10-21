@@ -1,0 +1,8 @@
+id: electrs-rest
+version: "0.1.0"
+name: "Electrs REST"
+description: "Electrs with REST API for Umbrel"
+logo: "https://raw.githubusercontent.com/romanz/electrs/master/res/logo.png"
+repository: "https://github.com/yourusername/umbrel-electrs-rest"
+ports:
+  - 3002

@@ -1,0 +1,21 @@
+version: "3.8"
+
+services:
+  electrs-rest:
+    build: .
+    container_name: electrs_rest
+    restart: unless-stopped
+    ports:
+      - "3002:3002"   # REST API
+      - "50001:50001" # Electrum TCP
+    volumes:
+      - ~/umbrel/bitcoin:/home/bitcoin/.bitcoin:ro
+      - ~/umbrel/app-data/electrs-rest/data:/data
+    command: >
+      electrs
+      --network bitcoin
+      --daemon-dir /home/bitcoin/.bitcoin
+      --db-dir /data
+      --electrum-rpc-addr 0.0.0.0:50001
+      --http-addr 0.0.0.0:3002
+      --rest-api
