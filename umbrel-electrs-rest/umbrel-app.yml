@@ -2,7 +2,7 @@ manifestVersion: 1
 id: electrs-rest
 name: ZeroTier
 tagline: electrs-rest
-icon: 
+icon: https://raw.githubusercontent.com/romanz/electrs/master/logo/logo.svg
 category: Networking
 version: "1.0.0"
 port: 4000
@@ -24,4 +24,5 @@ releaseNotes: >-
 dependencies: []
 path: ""
 defaultUsername: ""
+
 defaultPassword: ""
