@@ -1,0 +1,22 @@
+id: electrs
+name: Electrs REST
+version: "1.0.0"
+category: Bitcoin
+tagline: Self-hosted Electrum and REST API indexer for Bitcoin Core.
+description: >
+  This app runs the mempool/electrs container, providing a Bitcoin Electrum server and REST API that integrates with your Umbrel Bitcoin Core node.
+  It allows other apps and external clients to query blockchain data and balances directly from your node.
+
+developer: Community
+repo: https://github.com/mempool/electrs
+support: https://github.com/mempool/electrs/issues
+website: https://github.com/mempool/electrs
+dependencies:
+  - bitcoin
+port: 3002
+path: /
+torOnly: false
+permissions:
+  - bitcoind
+defaultUsername: ""
+defaultPassword: ""
