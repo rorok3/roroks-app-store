@@ -1,15 +1,33 @@
-version: "3.5"
+version: "3.8"
 
 services:
+  electrs:
+    image: mempool/electrs:latest
+    container_name: electrs_rest
+    restart: unless-stopped
+    networks:
+      - umbrel
+    ports:
+      - "3002:3002"     # REST API
+      - "50001:50001"   # Electrum TCP
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+      - ${UMBREL_ROOT}/app-data/bitcoin/data/bitcoin/.cookie:/home/bitcoin/.bitcoin/.cookie:ro
+    command:
+      - --daemon-dir
+      - /home/bitcoin/.bitcoin
+      - --daemon-rpc-addr
+      - bitcoin_app_1:8332
+      - --cookie
+      - /home/bitcoin/.bitcoin/.cookie
+      - --http-addr
+      - 0.0.0.0:3002
+      - --electrum-rpc-addr
+      - 0.0.0.0:50001
+      - --network
+      - mainnet
+      - --address-search
 
-  app_proxy:
-    environment:
-      # The format here is: <app-id>_<docker-service-name>_1
-      APP_HOST: zerotier_1
-      APP_PORT: 3001
-    
-  server:
-    image: zerotier/zerotier:latest
-    user: "1000:1000"
-    init: true
-  restart: unless-stoped
+networks:
+  umbrel:
+    external: true
