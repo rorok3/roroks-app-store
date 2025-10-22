@@ -1,7 +1,9 @@
+manifestVersion: 1
 id: electrs
 name: Electrs REST
 version: "1.0.0"
 category: Bitcoin
+icon: https://www.gravatar.com/avatar/4249de5f051fc946ad3cc30515616d54
 tagline: Self-hosted Electrum and REST API indexer for Bitcoin Core.
 description: >
   This app runs the mempool/electrs container, providing a Bitcoin Electrum server and REST API that integrates with your Umbrel Bitcoin Core node.
@@ -20,3 +22,4 @@ permissions:
   - bitcoind
 defaultUsername: ""
 defaultPassword: ""
+
